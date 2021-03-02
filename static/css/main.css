@@ -1,0 +1,52 @@
+#logo {
+
+}
+
+.navbar-brand {
+  font-family: "Potta One", courier;
+}
+
+body {
+  background-color: #CCCCCC;
+  background-image: url("https://rismedia.com/wp-content/uploads/2018/12/stock_market_509614932-1080x627.jpg");
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+
+#total-orders {
+  background-color: aqua;
+}
+
+#orders-deliverd {
+  background-color: aquamarine;
+}
+
+#orders-pending {
+  background-color: darkturquoise;
+}
+
+#customer_edit {
+  background-color: orange;
+}
+
+#customer_info {
+  background-color: coral;
+}
+
+#customer_total_orders {
+  background-color: orangered;
+}
+
+.register_card {
+  background-color: rgba(0, 255, 255, 0.2);
+}
+
+.register_body {
+  background-image: url("http://dreamicus.com/data/valley/valley-02.jpg");
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-size: cover; /* Resize the background image to cover the entire container */
+}
+/*
+nature wallpaper
+background-image: url("http://dreamicus.com/data/valley/valley-02.jpg");
+*/

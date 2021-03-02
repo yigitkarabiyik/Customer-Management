@@ -1,0 +1,46 @@
+{% extends 'accounts/main.html' %}
+
+{% block body %}
+<br>
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-3">
+    <div class="card" >
+      <div class="card-body text-center">
+        <a class="btn btn-warning d-grid gap-2" href="{% url 'accounts:home' %}">
+          Back to Profile</a>
+        <hr>
+        <h3><b>Account Settings</b></h3>
+        <hr>
+        <img class="img-fluid rounded-3" 
+        src="{{request.user.customer.profile_pic.url}}"
+        alt="profile picture">
+      </div>
+    </div>
+</div>
+
+<div class="col-md-9">
+    <div class="card" >
+      <div class="card-body">
+        <form method="POST" action="" enctype="multipart/form-data">
+          {% csrf_token %}
+            <table class="table">
+              <tbody>
+                  {% for field in form %}
+                <tr>
+                  <th>{{field.label}}</th>
+                  <td>{{field}}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+
+          <input class="btn btn-primary" type="submit" value="Submit"
+                                          name="Update Information">
+        </form>
+      </div>
+    </div>
+</div>
+</div>
+</div>
+{% endblock %}

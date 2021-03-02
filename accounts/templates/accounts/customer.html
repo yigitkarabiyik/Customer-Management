@@ -1,0 +1,100 @@
+{% extends 'accounts/main.html' %}
+
+{% block body %}
+<!-- Customer: - Contact Information - Total Orders -->
+<div class="container">
+  <div class="row">
+    <!-- Customer: -->
+    <div class="col-md-4">
+      <div class="card" id="customer_edit">
+        <div class="card-header">
+          <h3>Customer:</h3>
+        </div>
+        <div class="card-body">
+            <div class="d-grid gap-2">
+              <a class="btn btn-sm btn-primary" href="">Update Order</a>
+              <a class="btn btn-sm btn-primary" href="{% url 'accounts:create_order' customer.id  %}">Place Order</a>
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- Contact Information -->
+    <div class="col-md-4">
+      <div class="card" id="customer_info">
+        <div class="card-header">
+          <h3>Contact Information</h3>
+        </div>
+        <div class="card-body">
+            <p>Email: {{customer.email}}</p>
+            <p>Phone: {{customer.phone}}</p>
+        </div>
+      </div>
+    </div>
+    <!-- Total Orders -->
+    <div class="col-md-4">
+      <div class="card" id="customer_total_orders">
+        <div class="card-header">
+          <h3>Total Orders</h3>
+        </div>
+        <div class="card-body text-center">
+            <h2><b>{{order_count}}</b></h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<!-- Search -->
+<div class="container-fluid">
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+            <form method="get">
+                {{myFilter.form}}
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+<br>
+<!-- Product - Category - Date Ordered - Status - Update - Remove -->
+<div class="container-fluid">
+<div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">Product</th>
+                  <th scope="col">Notes</th>
+                  <th scope="col">Date Orderd</th>
+                  <th scope="col">Status</th>
+                  <th scope="col">Update</th>
+                  <th scope="col">Remove</th>
+                </tr>
+              </thead>
+              <tbody>
+                  {% for order in orders %}
+                <tr>
+                    <td>{{order.product}}</td>
+                    <td>{{order.note}}</td>
+                    <td>{{order.date_created}}</td>
+                    <td>{{order.status}}</td>
+                    <td><a class="btn btn-sm btn-primary" href="{% url 'accounts:update_order' order.id %}">Update</a></td>
+                    <td><a class="btn btn-sm btn-danger" href="{% url 'accounts:delete_order' order.id %}">Delete</a></td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+        </div>
+      </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}
+
